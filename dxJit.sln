@@ -2,7 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dxJit.Core", "dxJit.Core\dxJit.Core.csproj", "{358A8AFE-520C-4A22-B8DB-912256C25541}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dxJit.SignatureFinder", "dxJit.SignatureFinder\dxJit.SignatureFinder.csproj", "{58C90A9E-28EC-418D-A396-EC727FFC6A65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dxJit.SignatureFinder", "examples\dxJit.SignatureFinder\dxJit.SignatureFinder.csproj", "{58C90A9E-28EC-418D-A396-EC727FFC6A65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dxJit.BrokenAddition", "examples\dxJit.BrokenAddition\dxJit.BrokenAddition.csproj", "{34B47B30-871A-4A23-862B-FF7236AC6B48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,9 @@ Global
 		{58C90A9E-28EC-418D-A396-EC727FFC6A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58C90A9E-28EC-418D-A396-EC727FFC6A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58C90A9E-28EC-418D-A396-EC727FFC6A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34B47B30-871A-4A23-862B-FF7236AC6B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34B47B30-871A-4A23-862B-FF7236AC6B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34B47B30-871A-4A23-862B-FF7236AC6B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34B47B30-871A-4A23-862B-FF7236AC6B48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
