@@ -9,9 +9,10 @@ public abstract class DxJit : IDisposable
 {
     #region Constants (private)
 
-    // https://github.com/dotnet/runtime/blob/55e2378d86841ec766ee21d5e504d7724c39b53b/src/coreclr/inc/corjit.h#L179-L222
+    // note @dxqwww:
+    // see reference: https://github.com/dotnet/runtime/blob/88f9aba91e11d1695ebe9ab572736ee62ac7ad61/src/coreclr/inc/corjit.h#L114-L152
     //
-    // used vtable indicies for ICorJitCompiler 
+    // ICorJitCompiler vtable indices
     private const int ICorJitCompiler_compileMethod_index = 0;
 
     #endregion
@@ -185,10 +186,10 @@ public abstract class DxJit : IDisposable
 
     #region Delegates (private)
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     protected delegate IntPtr GetJitDelegate();
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     protected delegate int CompileMethodDelegate(
         IntPtr thisPtr,
         IntPtr comp,
