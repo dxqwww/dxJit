@@ -1,31 +1,25 @@
 ﻿using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using dnlib.DotNet;
 
-namespace dxJit.SignatureFinder
+namespace dxJit.SignatureFinder;
+
+public static class Program
 {
-    public static class Program
+    public static void Main(string[] args)
     {
-        private static TypeDef AnalyzedType;
+        var assembly = Assembly.LoadFrom(@"path/to/application.exe");
 
-        public static void Main(string[] args)
-        {
-            var assembly = Assembly.LoadFrom(@"path/to/application.exe");
+        var targetType = assembly.GetType("TypeName");
+        var targetMethod = targetType.GetMethod("MethodName", (BindingFlags)~0);
 
-            var targetType = assembly.GetType("TypeName");
-            var targetMethod = targetType.GetMethod("MethodName", (BindingFlags)~0);
-
-            if (targetMethod is null)
-                throw new Exception($"Method is null");
+        if (targetMethod is null)
+            throw new Exception($"Method is null");
             
-            using var sigFinder = new SignatureFinder(targetMethod);
+        using var sigFinder = new SignatureFinder(targetMethod);
 
-            sigFinder.Init();
+        sigFinder.Init();
 
-            RuntimeHelpers.PrepareMethod(targetMethod.MethodHandle);
-            
-            Console.ReadKey();
-        }
+        RuntimeHelpers.PrepareMethod(targetMethod.MethodHandle);
     }
 }
