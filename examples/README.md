@@ -7,21 +7,21 @@ I've put together a few examples of how you can get the JIT compiler to do what 
 We're going to tweak the way a method that takes two integers `(int, int)` so that the result is always one more than we're expecting:
 
 ```csharp
-    internal class Program
+internal class Program
+{
+    private static int Add(int x, int y) => x + y;
+
+    public static void Main(string[] args)
     {
-        private static int Add(int x, int y) => x + y;
+        var brokenAddition = new BrokenAddition(nameof(Add));
+        
+        brokenAddition.Init();
+        
+        var result = Add(2, 2);
 
-        public static void Main(string[] args)
-        {
-            var brokenAddition = new BrokenAddition(nameof(Add));
-            
-            brokenAddition.Init();
-            
-            var result = Add(2, 2);
-
-            Console.WriteLine(result); // 5
-        }
+        Console.WriteLine(result); // 5
     }
+}
 ```
 
 # Signature Finder (WIP)
@@ -29,7 +29,7 @@ We're going to tweak the way a method that takes two integers `(int, int)` so th
 There is a way to literally get all the native x86 instructions from the method:
 
 ```csharp
-public static class Program
+internal static class Program
 {
     public static void Main(string[] args)
     {
